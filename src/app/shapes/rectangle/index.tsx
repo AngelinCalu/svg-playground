@@ -26,6 +26,8 @@ const Rectangle: React.FC = (): JSX.Element => {
           y={strokeWidth}
           rx={borderRadius}
           ry={borderRadius}
+          // ry can be omitted if same with rx
+          // border radius 50% of width and height will create a circle
         />
       </svg>
     </div>

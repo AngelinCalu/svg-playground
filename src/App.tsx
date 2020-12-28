@@ -1,5 +1,6 @@
 import React from "react";
 import Circle from "./app/shapes/circle";
+import Line from "./app/shapes/line";
 import Rectangle from "./app/shapes/rectangle";
 
 const App: React.FC = (): JSX.Element => {
@@ -8,6 +9,7 @@ const App: React.FC = (): JSX.Element => {
       <div className="mx-auto">
         <Circle />
         <Rectangle />
+        <Line />
       </div>
     </div>
   );
