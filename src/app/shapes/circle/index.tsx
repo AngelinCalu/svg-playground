@@ -5,6 +5,7 @@ const Circle: React.FC = (): JSX.Element => {
   const diameter = radius * 2;
   const strokeWidth = 2;
   const strokeColor = "#006699";
+  const centerColor = "#cc0000";
 
   return (
     <div>
@@ -21,6 +22,13 @@ const Circle: React.FC = (): JSX.Element => {
           strokeWidth={strokeWidth}
           stroke={strokeColor}
           r={radius - 1}
+          cx={diameter}
+          cy={diameter}
+        />
+        <circle
+          fill={centerColor}
+          strokeWidth={0}
+          r={strokeWidth}
           cx={diameter}
           cy={diameter}
         />
