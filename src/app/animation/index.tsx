@@ -1,5 +1,8 @@
 import React, { useRef, useEffect } from "react";
 
+import Coding from "./coding.png";
+import Shipbuilding from "./shipbuilding.png";
+
 interface Point2D {
   x: number;
   y: number;
@@ -71,6 +74,7 @@ const Animation: React.FC = (): JSX.Element => {
         // ref={SVGElement}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox={`0 0 
             ${diameter * 2 + radius + 2 * strokeWidth} 
             ${diameter * 2 + radius + 2 * strokeWidth}
@@ -165,6 +169,7 @@ const Animation: React.FC = (): JSX.Element => {
         />
 
         <path
+          id="circleLeft"
           ref={circle1Path}
           fill="none"
           stroke={strokeColor}
@@ -198,6 +203,7 @@ const Animation: React.FC = (): JSX.Element => {
         />
 
         <path
+          id="circleRight"
           ref={circle2Path}
           fill="none"
           stroke={strokeColor}
@@ -209,6 +215,27 @@ const Animation: React.FC = (): JSX.Element => {
             a ${radius},${radius} 0 1,0 ${radius * -2},0
             `}
         />
+
+        <defs>
+          <mask id="circleLeftPath" clipPathUnits="userSpaceOnUse">
+            <circle cx={OL.x} cy={OL.y} r={radius} />
+          </mask>
+          <mask id="circleRightPath" clipPathUnits="userSpaceOnUse">
+            <circle cx={OL.x} cy={OL.y} r={radius} />
+          </mask>
+        </defs>
+
+        <image
+          xlinkHref={Coding}
+          mask="url(#circleLeftPath)"
+          preserveAspectRatio="xMidYMid slice"
+        ></image>
+
+        <image
+          xlinkHref={Shipbuilding}
+          mask="url(#circleRighPath)"
+          preserveAspectRatio="xMidYMid slice"
+        ></image>
       </svg>
     </div>
   );
